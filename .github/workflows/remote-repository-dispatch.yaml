@@ -1,0 +1,12 @@
+name: Remote Repository Dispatch
+on:
+  workflow_dispatch:
+jobs:
+  dispatch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Repository Dispatch
+        uses: peter-evans/repository-dispatch@v2
+        with:
+          event-type: remote-repository-dispatch
+          client-payload: '{"description": "I am a remote repository dispatch using Webhook Actions."}'
