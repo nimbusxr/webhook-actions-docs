@@ -1,4 +1,5 @@
 # Supported Events
+
 - branch_protection_rule
 - branch_protection_rule_created
 - branch_protection_rule_deleted
@@ -206,7 +207,7 @@
 - repository_transferred
 - repository_unarchived
 - repository_dispatch
-  - See [how to dispatch between repositories](./examples/remote-repository-dispatch.md)
+    - See [how to dispatch between repositories](./examples/remote-repository-dispatch.md)
 - repository_import
 - repository_vulnerability_alert
 - repository_vulnerability_alert_create
@@ -252,5 +253,8 @@
 - workflow_run_in_progress
 - workflow_run_requested
 
-Please see [GitHub Webhooks Documentation](https://docs.github.com/en/developers/webhooks-and-events/webhooks/webhook-events-and-payloads) and
-[GitHub Repository Dispatch Documentation](https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#repository_dispatch) for further information.
+Please
+see [GitHub Webhooks Documentation](https://docs.github.com/en/developers/webhooks-and-events/webhooks/webhook-events-and-payloads)
+and
+[GitHub Repository Dispatch Documentation](https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#repository_dispatch)
+for further information.

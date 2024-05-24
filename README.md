@@ -1,18 +1,21 @@
 # Webhook Actions GitHub App
 
-Transforms your organization's webhook events into streamlined repository dispatches. With support for over 250+ events, dispatching Actions across repositories has never been easier or more secure. No need to worry about managing Personal Access Tokens, our app ensures secure dispatches every time.
+Transforms your organization's webhook events into streamlined repository dispatches. With support for over 250+ events,
+dispatching Actions across repositories has never been easier or more secure. No need to worry about managing Personal
+Access Tokens, our app ensures secure dispatches every time.
 
 See it in the [GitHub Marketplace](https://github.com/marketplace/webhook-actions).
 
-Also, be sure to check out the [Webhook Actions Playground beta](https://nimbusxr.github.io/webhook-actions/). This tool will help you validate your event configurations.
+Also, be sure to check out the [Webhook Actions Playground beta](https://nimbusxr.github.io/webhook-actions/). This tool
+will help you validate your event configurations.
 
 ## How it works
 
 ```mermaid
 sequenceDiagram
-    Webhook Actions-->>Org Webhooks: subscribe
-    Org Webhooks-->>Webhook Actions: publish
-    Webhook Actions-->>Repo Workflows: repository_dispatch
+    Webhook Actions -->> Org Webhooks: subscribe
+    Org Webhooks -->> Webhook Actions: publish
+    Webhook Actions -->> Repo Workflows: repository_dispatch
 ```
 
 ## Installation
@@ -31,10 +34,10 @@ at `.github/webhook-actions/config.json`.
 {
   "events": {
     "team_created": {
-       # ...
+      # ...
     },
     "team_deleted": {
-       # ...
+      # ...
     }
   }
 }
@@ -136,10 +139,24 @@ See [Examples](./examples).
 
 Rate limiting adheres
 to [GitHub Apps Rate Limits](https://docs.github.com/en/developers/apps/building-github-apps/rate-limits-for-github-apps).
-In addition caching is used to minimize requests for installation, account, and Webhook Actions configs on each
-repository.
 
-Any event fired from a workflow dispatched by Webhook Actions will also be ignored.
+## Caching
+
+In addition to rate limiting, caching is used to minimize requests for installation, account, and Webhook Actions
+configs on each repository. The following list is the cache times for each:
+
+- **Installation: 60 minutes**
+- **Account: 15 minutes**
+- **Configurations: 15 minutes**
+
+Future functionality will include a cache busting mechanism as well as monitoring on changes to configurations. For now,
+expect to wait for the cache to expire. If you suspect an issue, please use
+the [issue tracker](https://github.com/nimbusxr/webhook-actions-docs/issues) to report it.
+
+## Limiting Loops and Ignoring Events
+
+Any event fired from a workflow dispatched by Webhook Actions will be ignored. Attempts to circumvent this behavior will
+only result in reduced quality of service.
 
 ## Plans
 

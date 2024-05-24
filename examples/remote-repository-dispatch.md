@@ -1,12 +1,16 @@
 # Remote Repository Dispatch
-Using Webhook Actions, we can dispatch events to repositories across the organization, without the use of a Personal Access Token.
+
+Using Webhook Actions, we can dispatch events to repositories across the organization, without the use of a Personal
+Access Token.
 
 ## Minimum Requirements
-- An origin repository has Webhook Actions installed. 
-  - This is necessary for reporting repository dispatch events to Webhook Actions.
+
+- An origin repository has Webhook Actions installed.
+    - This is necessary for reporting repository dispatch events to Webhook Actions.
 - A remote repository has Webhook Actions installed.
 
 ## Usage
+
 Your origin repository can use a repository dispatch as follows:
 
 ```yaml
